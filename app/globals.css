@@ -10,6 +10,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -18,5 +19,63 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .social-icon-link {
+    @apply relative flex items-center justify-center w-10 h-10 rounded-full bg-black/30 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-glow;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2), 0 0 30px rgba(34, 211, 238, 0.1);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3), 0 0 30px rgba(34, 211, 238, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: rgba(255, 255, 255, 0.75);
+    }
   }
 }

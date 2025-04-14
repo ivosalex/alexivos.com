@@ -11,8 +11,11 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Alex Ivos",
-  description: "Personal website of Alex Ivos",
+  title: "Alex Ivos | Developer & Designer",
+  description: "Personal website of Alex Ivos - Developer, Designer, and Digital Creator",
+  icons: {
+    icon: "/favicon.ico",
+  },
     generator: 'v0.dev'
 }
 
@@ -22,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${spaceMono.variable} font-sans`}>{children}</body>
     </html>
   )
